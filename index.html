@@ -51,7 +51,7 @@
   .reader{position:fixed;inset:0;background:var(--bg);display:none;flex-direction:column;z-index:10}
   .reader.on{display:flex}
   .bar{display:flex;align-items:center;gap:10px;padding:10px 12px;padding-top:max(10px,env(safe-area-inset-top));background:var(--bg);border-bottom:1px solid #16233f}
-  .back{background:var(--card);border:0;color:#fff;width:44px;height:44px;border-radius:14px;font-size:20px;font-weight:900;cursor:pointer;flex:0 0 auto}
+  .back{background:var(--card);border:0;color:#fff;height:44px;padding:0 14px;white-space:nowrap;border-radius:14px;font-size:20px;font-weight:900;cursor:pointer;flex:0 0 auto}
   .rtitle{flex:1;min-width:0;font-weight:900;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .copy{background:var(--acc);color:#fff;border:0;height:44px;padding:0 18px;border-radius:14px;font-weight:900;font-size:15px;cursor:pointer;flex:0 0 auto}
   .copy.done{background:var(--ok);color:#03221b}
@@ -78,12 +78,11 @@
 
 <div class="reader" id="reader">
   <div class="bar">
-    <button class="back" id="back" aria-label="Voltar">&#8592;</button>
+    <button class="back" id="back" aria-label="Voltar">&#8592; Voltar</button>
     <div class="rtitle" id="rtitle"></div>
     <button class="copy" id="copy">Copiar</button>
   </div>
-  <iframe class="frame" id="frame" title="Roteiro" allow="clipboard-write"></iframe>
-</div>
+  </div>
 
 <div class="toast" id="toast">Roteiro copiado</div>
 
@@ -131,7 +130,7 @@ async function carregarLista(){
     }catch(e){}
   }));
   render();
-  abrirPeloHash();
+  abrirPeloEndereco();
 }
 
 function render(){
@@ -167,27 +166,54 @@ function render(){
   });
 }
 
-function abrir(arquivo){ location.hash = 'r=' + encodeURIComponent(arquivo); }
+let frame = null;
+const urlInicial = location.pathname + location.search;
 
-function abrirPeloHash(){
-  const m = location.hash.match(/^#r=(.+)$/);
-  if(!m){ fecharLeitor(); return; }
-  const arquivo = decodeURIComponent(m[1]);
+function abrir(arquivo){
+  history.pushState({r:arquivo, daLista:true}, '', '#r=' + encodeURIComponent(arquivo));
+  mostrar(arquivo);
+}
+
+function mostrar(arquivo){
   const r = roteiros.find(x => x.arquivo === arquivo) || {arquivo, titulo:nomeBonito(arquivo)};
   $('rtitle').textContent = r.titulo;
-  $('frame').src = `${PASTA}/${encodeURIComponent(arquivo)}`;
+  // iframe novo a cada abertura: nao cria entrada no historico do navegador
+  if(frame) frame.remove();
+  frame = document.createElement('iframe');
+  frame.className = 'frame';
+  frame.title = 'Roteiro';
+  frame.setAttribute('allow','clipboard-write');
+  frame.src = `${PASTA}/${encodeURIComponent(arquivo)}`;
+  frame.addEventListener('load', prepararRoteiro);
+  $('reader').appendChild(frame);
   $('reader').classList.add('on');
   document.body.style.overflow = 'hidden';
 }
+
 function fecharLeitor(){
   $('reader').classList.remove('on');
-  $('frame').removeAttribute('src');
+  if(frame){ frame.remove(); frame = null; }
   document.body.style.overflow = '';
 }
 
+function voltar(){
+  fecharLeitor();
+  if(history.state && history.state.r && history.state.daLista) history.back();
+  else history.replaceState(null, '', urlInicial);
+  window.scrollTo(0,0);
+}
+
+function abrirPeloEndereco(){
+  const m = location.hash.match(/^#r=(.+)$/);
+  if(!m){ fecharLeitor(); return; }
+  const arq = decodeURIComponent(m[1]);
+  history.replaceState({r:arq}, '', location.href);
+  mostrar(arq);
+}
+
 // roteiro sem botoes proprios ganha um "copiar" em cada bloco de codigo
-$('frame').addEventListener('load', () => {
-  let d; try{ d = $('frame').contentDocument; }catch(e){ return; }
+function prepararRoteiro(){
+  let d; try{ d = frame.contentDocument; }catch(e){ return; }
   if(!d || !d.body || d.querySelector('button')) return;
   d.querySelectorAll('pre').forEach(pre => {
     pre.style.position = 'relative';
@@ -197,7 +223,7 @@ $('frame').addEventListener('load', () => {
     b.onclick = e => { e.stopPropagation(); const c = pre.cloneNode(true); c.querySelectorAll('button').forEach(x=>x.remove()); copiar(c.textContent); };
     pre.appendChild(b);
   });
-});
+}
 
 async function copiar(texto){
   texto = texto.replace(/\n{3,}/g,'\n\n').trim();
@@ -213,7 +239,7 @@ async function copiar(texto){
 }
 
 $('copy').onclick = () => {
-  let d; try{ d = $('frame').contentDocument; }catch(e){}
+  let d; try{ d = frame && frame.contentDocument; }catch(e){}
   if(!d || !d.body) return;
   const clone = d.body.cloneNode(true);
   clone.querySelectorAll('button, script, style').forEach(b => b.remove());
@@ -228,9 +254,11 @@ $('copy').onclick = () => {
   copiar(texto);
 };
 $('hero').onclick = () => { const u = roteiros[roteiros.length-1]; if(u) abrir(u.arquivo); };
-$('back').onclick = () => { history.length > 1 ? history.back() : (location.hash = ''); };
+$('back').onclick = voltar;
 $('q').addEventListener('input', render);
-window.addEventListener('hashchange', abrirPeloHash);
+// gesto/botao voltar do celular: fecha o roteiro e fica na pagina inicial
+window.addEventListener('hashchange', abrirPeloEndereco);
+window.addEventListener('popstate', () => { if(history.state && history.state.r) mostrar(history.state.r); else fecharLeitor(); });
 carregarLista();
 </script>
 </body>
