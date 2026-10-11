@@ -4,66 +4,76 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Roteiros do João Pedro</title>
-<meta name="theme-color" content="#101114">
+<meta name="theme-color" content="#07101f">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="Roteiros JP">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#101114; --card:#1a1c21; --card2:#22252b; --line:#2c3038;
-    --txt:#f2f3f5; --muted:#9097a3; --acc:#ffb020; --acc-txt:#1a1200; --ok:#3ecf8e;
-    --r:16px;
-  }
+  :root{--bg:#07101f;--card:#111c33;--mut:#8ea0bd;--acc:#1e7bff;--ok:#2ec4a6}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,sans-serif}
+  html{-webkit-text-size-adjust:100%}
+  html,body{margin:0;background:var(--bg);color:#fff;font-family:Nunito,system-ui,-apple-system,sans-serif}
   body{min-height:100dvh}
-  .wrap{max-width:760px;margin:0 auto;padding:22px 16px 60px}
-  .logo{width:56px;height:56px;border-radius:14px;display:block;margin-bottom:10px}
-  header h1{font-size:28px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
-  header p{margin:0;color:var(--muted);font-size:15px}
-  .search{margin:20px 0 14px;position:relative}
-  .search input{width:100%;padding:14px 16px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);color:var(--txt);font:inherit;font-size:16px;outline:none}
-  .search input:focus{border-color:var(--acc)}
-  .count{color:var(--muted);font-size:13px;margin:0 2px 10px}
-  .list{display:flex;flex-direction:column;gap:10px}
-  .item{display:flex;align-items:center;gap:14px;padding:16px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);cursor:pointer;text-align:left;color:inherit;font:inherit;width:100%}
-  .item:active{transform:scale(.99)}
-  .item:hover{border-color:#3a3f49}
-  .num{flex:0 0 40px;height:40px;border-radius:12px;background:var(--card2);display:grid;place-items:center;font-weight:700;color:var(--acc);font-size:15px}
-  .meta{flex:1;min-width:0}
-  .meta b{display:block;font-size:16px;font-weight:600;line-height:1.3}
-  .meta span{display:block;color:var(--muted);font-size:13px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .arrow{color:var(--muted);font-size:20px}
-  .empty{padding:28px 20px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center;line-height:1.55;font-size:15px}
-  .empty code{background:var(--card2);padding:2px 6px;border-radius:6px;color:var(--txt)}
+  button{font:inherit}
+
+  .hero{position:relative;height:min(78vw,400px);min-height:280px;background:#0b3fa8 url(capa.jpg) center 30%/cover;cursor:pointer;display:block;width:100%;border:0;padding:0;text-align:left;color:#fff}
+  .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,16,31,0) 35%,rgba(7,16,31,.55) 70%,var(--bg) 100%)}
+  .hero .tx{position:absolute;left:18px;right:18px;bottom:16px;z-index:1}
+  .tag{display:inline-block;background:var(--acc);font-weight:800;font-size:12px;padding:5px 11px;border-radius:999px;letter-spacing:.05em}
+  .hero h1{font-size:30px;font-weight:900;margin:9px 0 0;line-height:1.05;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+  .hero .play{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#fff;color:#07101f;font-weight:900;font-size:14px;padding:8px 14px;border-radius:999px}
+  .hero .play.hide{display:none}
+
+  .wrap{max-width:820px;margin:0 auto;padding:0 16px calc(40px + env(safe-area-inset-bottom))}
+  .sec{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 0 12px}
+  .sec h2{font-weight:900;font-size:19px;margin:0}
+  .sec span{color:var(--mut);font-weight:700;font-size:13px}
+  .search{display:none;margin:0 0 12px}
+  .search.on{display:block}
+  .search input{width:100%;padding:12px 16px;border-radius:14px;border:1px solid #1d2b49;background:var(--card);color:#fff;font:inherit;font-size:16px;font-weight:700;outline:none}
+  .search input::placeholder{color:var(--mut)}
+  .gr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(min-width:640px){.gr{grid-template-columns:1fr 1fr 1fr}}
+  .c{border-radius:16px;overflow:hidden;background:var(--card);border:0;padding:0;color:#fff;text-align:left;cursor:pointer;display:block;width:100%}
+  .c:active{transform:scale(.98)}
+  .cv{height:118px;position:relative;display:grid;place-items:center;font-size:54px;background-size:cover;background-position:center}
+  .cv span{position:absolute;left:10px;top:8px;font-size:13px;background:rgba(0,0,0,.35);padding:2px 9px;border-radius:999px;font-weight:900}
+  .t{font-size:16px;font-weight:800;padding:10px 12px 2px;line-height:1.2}
+  .m{font-size:12px;color:var(--mut);padding:0 12px 12px;font-weight:700}
+  .empty{padding:28px 20px;border:1px dashed #22345a;border-radius:16px;color:var(--mut);text-align:center;line-height:1.55;font-weight:700}
 
   /* leitor */
   .reader{position:fixed;inset:0;background:var(--bg);display:none;flex-direction:column;z-index:10}
   .reader.on{display:flex}
-  .bar{display:flex;align-items:center;gap:10px;padding:12px 14px;padding-top:max(12px,env(safe-area-inset-top));border-bottom:1px solid var(--line);background:var(--bg)}
-  .back{background:var(--card);border:1px solid var(--line);color:var(--txt);width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer;flex:0 0 auto}
-  .rtitle{flex:1;min-width:0;font-weight:600;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .copy{background:var(--acc);color:var(--acc-txt);border:0;height:44px;padding:0 18px;border-radius:12px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;flex:0 0 auto}
-  .copy.done{background:var(--ok);color:#00230f}
+  .bar{display:flex;align-items:center;gap:10px;padding:10px 12px;padding-top:max(10px,env(safe-area-inset-top));background:var(--bg);border-bottom:1px solid #16233f}
+  .back{background:var(--card);border:0;color:#fff;width:44px;height:44px;border-radius:14px;font-size:20px;font-weight:900;cursor:pointer;flex:0 0 auto}
+  .rtitle{flex:1;min-width:0;font-weight:900;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .copy{background:var(--acc);color:#fff;border:0;height:44px;padding:0 18px;border-radius:14px;font-weight:900;font-size:15px;cursor:pointer;flex:0 0 auto}
+  .copy.done{background:var(--ok);color:#03221b}
   .frame{flex:1;width:100%;border:0;background:var(--bg)}
-  .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--ok);color:#00230f;font-weight:700;padding:12px 18px;border-radius:999px;opacity:0;transition:.2s;pointer-events:none;z-index:20}
+  .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--ok);color:#03221b;font-weight:900;padding:12px 18px;border-radius:999px;opacity:0;transition:.2s;pointer-events:none;z-index:20}
   .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 
-<div class="wrap" id="home">
-  <header>
-    <img class="logo" src="foca.png" alt="">
-    <h1>Roteiros do João Pedro</h1>
-    <p>Toca no roteiro pra abrir. Lá dentro tem o botão de copiar.</p>
-  </header>
-  <div class="search"><input id="q" type="search" placeholder="Buscar roteiro" autocomplete="off"></div>
-  <div class="count" id="count"></div>
-  <div class="list" id="list"><div class="empty">Carregando roteiros...</div></div>
+<button class="hero" id="hero">
+  <div class="tx">
+    <span class="tag">ROTEIROS DO JOÃO PEDRO</span>
+    <div style="font-weight:800;font-size:13px;opacity:.85;margin-top:10px">Mais recente</div><h1 id="heroT" style="margin-top:2px">Carregando...</h1>
+    <span class="play hide" id="heroP">&#9654; Abrir roteiro</span>
+  </div>
+</button>
+
+<div class="wrap">
+  <div class="sec"><h2>Todos os roteiros</h2><span id="count"></span></div>
+  <div class="search" id="searchBox"><input id="q" type="search" placeholder="Buscar roteiro" autocomplete="off"></div>
+  <div class="gr" id="list"></div>
 </div>
 
 <div class="reader" id="reader">
@@ -79,11 +89,13 @@
 
 <script>
 const OWNER = 'horisawa-ai', REPO = 'joaopedro', PASTA = 'roteiros';
+const GRADS = ['linear-gradient(135deg,#1e7bff,#0b3fa8)','linear-gradient(135deg,#2ec4a6,#0d7a8a)','linear-gradient(135deg,#a66cff,#5b2bd1)','linear-gradient(135deg,#ff7a59,#d13a5c)','linear-gradient(135deg,#ffb020,#e06d10)','linear-gradient(135deg,#ff5c8a,#b0306e)'];
 let roteiros = [];
 
 const $ = id => document.getElementById(id);
 const nomeBonito = f => f.replace(/\.html?$/i,'').replace(/^\d+[\s._-]*/,'').replace(/[-_]+/g,' ').trim() || f;
 const natural = (a,b) => a.arquivo.localeCompare(b.arquivo, 'pt-BR', {numeric:true, sensitivity:'base'});
+const num = i => String(i+1).padStart(2,'0');
 
 async function carregarLista(){
   let arquivos = [];
@@ -100,19 +112,22 @@ async function carregarLista(){
       if(r.ok) arquivos = await r.json();
     }catch(e){}
   }
-  roteiros = arquivos.map(a => ({arquivo:a, titulo:nomeBonito(a), resumo:''})).sort(natural);
+  roteiros = arquivos.map(a => ({arquivo:a, titulo:nomeBonito(a), sub:'', emoji:'🎬', capa:'', cor:'', busca:''})).sort(natural);
   render();
-  // pega titulo e primeira linha de cada arquivo
   await Promise.all(roteiros.map(async it => {
     try{
       const r = await fetch(`${PASTA}/${encodeURIComponent(it.arquivo)}`, {cache:'no-store'});
       if(!r.ok) return;
       const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+      const meta = n => doc.querySelector(`meta[name="${n}"]`)?.content?.trim() || '';
       const t = (doc.querySelector('title')?.textContent || doc.querySelector('h1')?.textContent || '').trim();
       if(t) it.titulo = t;
-      doc.querySelectorAll('script,style,title,h1').forEach(n => n.remove());
-      doc.querySelectorAll('p,div,li,h2,h3,h4,pre,br,td').forEach(n => n.append(' '));
-      it.resumo = (doc.body?.textContent || '').replace(/\s+/g,' ').trim().slice(0,120);
+      it.emoji = meta('jp-emoji') || it.emoji;
+      it.capa = meta('jp-capa');
+      it.cor = meta('jp-cor');
+      const sub = meta('jp-sub') || (doc.querySelector('.sub')?.textContent || '').split('·').slice(0,2).map(s=>s.trim()).filter(Boolean).join(' · ');
+      it.sub = sub;
+      it.busca = (doc.body?.textContent || '').replace(/\s+/g,' ').slice(0,4000).toLowerCase();
     }catch(e){}
   }));
   render();
@@ -120,27 +135,39 @@ async function carregarLista(){
 }
 
 function render(){
+  const ult = roteiros[roteiros.length-1];
+  $('heroT').textContent = ult ? ult.titulo : 'Nenhum roteiro ainda';
+  $('heroP').classList.toggle('hide', !ult);
+  $('searchBox').classList.toggle('on', roteiros.length > 6);
+  $('count').textContent = roteiros.length ? `${roteiros.length} roteiro${roteiros.length>1?'s':''}` : '';
+
   const q = $('q').value.trim().toLowerCase();
-  const vis = roteiros.filter(r => !q || (r.titulo+' '+r.resumo+' '+r.arquivo).toLowerCase().includes(q));
-  $('count').textContent = roteiros.length ? `${vis.length} de ${roteiros.length} roteiro${roteiros.length>1?'s':''}` : '';
   const list = $('list');
   if(!roteiros.length){
-    list.innerHTML = `<div class="empty">Nenhum roteiro ainda.<br>Os arquivos HTML que entrarem na pasta <code>${PASTA}/</code> aparecem aqui sozinhos.</div>`;
+    list.style.display='block';
+    list.innerHTML = `<div class="empty">Nenhum roteiro ainda.<br>Os roteiros novos aparecem aqui sozinhos.</div>`;
     return;
   }
-  if(!vis.length){ list.innerHTML = `<div class="empty">Nada encontrado com essa busca.</div>`; return; }
+  const vis = roteiros.filter(r => !q || (r.titulo+' '+r.sub+' '+r.busca).toLowerCase().includes(q));
+  if(!vis.length){ list.style.display='block'; list.innerHTML = `<div class="empty">Nada encontrado com essa busca.</div>`; return; }
+  list.style.display='';
   list.innerHTML = '';
   vis.forEach(r => {
-    const i = roteiros.indexOf(r) + 1;
+    const i = roteiros.indexOf(r);
     const b = document.createElement('button');
-    b.className = 'item';
-    b.innerHTML = `<div class="num">${i}</div><div class="meta"><b></b><span></span></div><div class="arrow">&#8250;</div>`;
-    b.querySelector('b').textContent = r.titulo;
-    b.querySelector('span').textContent = r.resumo || r.arquivo;
-    b.onclick = () => { location.hash = 'r=' + encodeURIComponent(r.arquivo); };
+    b.className = 'c';
+    b.innerHTML = `<div class="cv"><span>${num(i)}</span><i></i></div><div class="t"></div><div class="m"></div>`;
+    const cv = b.querySelector('.cv');
+    if(r.capa){ cv.style.backgroundImage = `url("${PASTA}/${r.capa}")`; }
+    else { cv.style.background = r.cor || GRADS[i % GRADS.length]; b.querySelector('i').textContent = r.emoji; b.querySelector('i').style.fontStyle='normal'; }
+    b.querySelector('.t').textContent = r.titulo;
+    b.querySelector('.m').textContent = r.sub || 'Roteiro';
+    b.onclick = () => abrir(r.arquivo);
     list.appendChild(b);
   });
 }
+
+function abrir(arquivo){ location.hash = 'r=' + encodeURIComponent(arquivo); }
 
 function abrirPeloHash(){
   const m = location.hash.match(/^#r=(.+)$/);
@@ -158,20 +185,16 @@ function fecharLeitor(){
   document.body.style.overflow = '';
 }
 
-// coloca botao de copiar em cada bloco de codigo dentro do roteiro
+// roteiro sem botoes proprios ganha um "copiar" em cada bloco de codigo
 $('frame').addEventListener('load', () => {
   let d; try{ d = $('frame').contentDocument; }catch(e){ return; }
-  if(!d || !d.body) return;
-  // se o roteiro ja tem os proprios botoes de copiar, nao mexe
-  if(d.querySelector('button')) return;
+  if(!d || !d.body || d.querySelector('button')) return;
   d.querySelectorAll('pre').forEach(pre => {
-    if(pre.dataset.jpCopy) return;
-    pre.dataset.jpCopy = '1';
     pre.style.position = 'relative';
     const b = d.createElement('button');
     b.textContent = 'copiar';
-    b.style.cssText = 'position:absolute;top:8px;right:8px;background:#ffb020;color:#1a1200;border:0;border-radius:8px;padding:6px 10px;font:600 13px Inter,system-ui,sans-serif;cursor:pointer';
-    b.onclick = e => { e.stopPropagation(); copiar(pre.innerText.replace(/\ncopiar$/,'').replace(/^copiar\n?/,'')); };
+    b.style.cssText = 'position:absolute;top:8px;right:8px;background:#1e7bff;color:#fff;border:0;border-radius:8px;padding:7px 12px;font:800 13px Nunito,system-ui,sans-serif;cursor:pointer';
+    b.onclick = e => { e.stopPropagation(); const c = pre.cloneNode(true); c.querySelectorAll('button').forEach(x=>x.remove()); copiar(c.textContent); };
     pre.appendChild(b);
   });
 });
@@ -196,7 +219,6 @@ $('copy').onclick = () => {
   clone.querySelectorAll('button, script, style').forEach(b => b.remove());
   clone.querySelectorAll('pre').forEach(p => { p.style.maxHeight = 'none'; });
   clone.querySelectorAll('details').forEach(x => x.setAttribute('open',''));
-  // innerText respeita quebras de linha do jeito que aparece na tela
   const tmp = d.createElement('div');
   tmp.style.cssText = 'position:absolute;left:-99999px;top:0;white-space:normal';
   tmp.appendChild(clone);
@@ -205,6 +227,7 @@ $('copy').onclick = () => {
   tmp.remove();
   copiar(texto);
 };
+$('hero').onclick = () => { const u = roteiros[roteiros.length-1]; if(u) abrir(u.arquivo); };
 $('back').onclick = () => { history.length > 1 ? history.back() : (location.hash = ''); };
 $('q').addEventListener('input', render);
 window.addEventListener('hashchange', abrirPeloHash);
