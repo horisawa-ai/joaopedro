@@ -5,45 +5,55 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hospital das Focas</title>
 <meta name="jp-emoji" content="🦭">
+<meta name="jp-sub" content="Episódio 1 · 57 takes">
 <style>
 :root{--bg:#0b1724;--card:#12233a;--card2:#183050;--txt:#e8f0f8;--mut:#93a8c0;--ac:#ff7a59;--ac2:#5cc8e8;--line:#24405f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:28px 16px 80px}
-h1{margin:0;font-size:30px;letter-spacing:.5px}
-.sub{color:var(--mut);margin:4px 0 22px}
+.wrap{max-width:880px;margin:0 auto;padding:30px 16px 80px}
+.kick{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--ac2);font-weight:700}
+h1{margin:4px 0 0;font-size:32px;letter-spacing:.3px}
+.sub{color:var(--mut);margin:6px 0 20px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .chip{background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--ac2)}
-h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin:34px 0 12px}
+.cast{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:22px}
+.cast div{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:8px 10px;font-size:13px}
+.cast b{display:block;font-size:14px;color:var(--txt)}
+.cast span{color:var(--mut)}
+h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin:36px 0 12px}
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
 summary{cursor:pointer;padding:12px 16px;font-weight:600}
 details .in{padding:0 16px 14px;color:var(--mut)}
 details .in li{margin-bottom:6px}
+details .in b{color:var(--txt)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
-.top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.num{font-weight:800;color:var(--ac);font-size:20px}
-.who{font-size:12px;letter-spacing:1.5px;font-weight:700;color:var(--ac2)}
-.fala{margin:6px 0 10px;font-size:17px}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.num{font-weight:800;color:var(--ac);font-size:20px;min-width:28px}
+.who{font-size:11px;letter-spacing:1.5px;font-weight:800;color:#0b1724;background:var(--c);border-radius:6px;padding:3px 8px}
+.fala{margin:8px 0 8px;font-size:17px}
 .refs{font-size:12px;color:var(--mut);margin-bottom:8px}
 .refs b{color:var(--txt);font-weight:600}
-.box{position:relative;background:#081320;border:1px solid var(--line);border-radius:10px}
-.bar{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 6px 12px;border-bottom:1px solid var(--line)}
+.box{background:#081320;border:1px solid var(--line);border-radius:10px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px 6px 12px;border-bottom:1px solid var(--line)}
 .lab{font-size:11px;letter-spacing:1.5px;color:var(--mut);text-transform:uppercase}
-.btns{display:flex;gap:6px}
+.btns{display:flex;gap:6px;flex-shrink:0}
 button{background:var(--card2);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer}
 button.cp{background:var(--ac);border-color:var(--ac);color:#1a0d08;font-weight:700}
 pre{margin:0;padding:10px 12px;white-space:pre-wrap;word-wrap:break-word;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#cfe0f0;max-height:4.6em;overflow:hidden}
 pre.open{max-height:none}
 .desc{color:var(--mut);font-size:14px;margin:4px 0 10px}
+.part{display:flex;align-items:center;gap:10px;margin:26px 0 12px;color:var(--mut);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.part:after{content:"";flex:1;height:1px;background:var(--line)}
 @media (max-width:600px){
 .wrap{padding:18px 14px 60px}
-h1{font-size:25px}
+h1{font-size:26px}
 .sub{font-size:14px}
 h2{margin:26px 0 10px}
 .card{padding:12px 12px;border-radius:12px}
 .fala{font-size:16px}
 .bar{gap:8px;padding:6px 6px 6px 10px}
 .lab{font-size:10px;letter-spacing:1px;line-height:1.3;flex:1;min-width:0}
+.cast{grid-template-columns:1fr 1fr}
 }
 button{white-space:nowrap;min-height:36px;padding:7px 12px;font-size:13px;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
@@ -51,15 +61,26 @@ html{-webkit-text-size-adjust:100%}
 </head>
 <body>
 <div class="wrap">
+<div class="kick">Dr. Foca · Episódio 1</div>
 <h1>Hospital das Focas</h1>
-<div class="sub">Episódio 1 · 19 takes · animação 3D infantil · Grok com narração e vozes no próprio clipe</div>
-<div class="chips"><span class="chip">16:9 horizontal</span><span class="chip">Português do Brasil</span><span class="chip">1 take = 1 clipe</span><span class="chip">Refs chamadas por @</span></div>
+<div class="sub">57 takes · animação 3D infantil · Grok com narração e vozes no próprio clipe</div>
+<div class="chips"><span class="chip">16:9 horizontal</span><span class="chip">Português do Brasil</span><span class="chip">1 fala = 1 take = 1 clipe</span><span class="chip">Refs chamadas por @</span></div>
+<div class="cast" id="cast"></div>
 
 <details><summary>Como usar</summary><div class="in"><ul>
-<li>Gere as 4 referências no ChatGPT anexando a imagem do Dr. Foca em cada uma, pra tudo sair no mesmo estilo dele.</li>
-<li>No Grok, suba as referências com estes nomes: @DrFoca, @Enfermeira, @PacienteEspirro, @Paciente e @Consultorio. Cada take já chama as que usa.</li>
-<li>As vozes estão travadas: o texto de cada voz é idêntico em todos os prompts. Se mudar uma, muda em todos.</li>
-<li>Cada clipe tem uma fala completa e só quem fala mexe a boca. A duração sai do tamanho da fala.</li>
+<li>Gere as referências no ChatGPT com o prompt "Todas as referências", anexando a imagem do Dr. Foca uma vez só. Sai uma imagem por referência, cada uma com o @ escrito no alto.</li>
+<li>No Grok, suba as referências com estes nomes: @DrFoca, @Enfermeira, @Paciente, @FocaTestemunha, @OutraFoca e @Consultorio. Cada take já chama as que usa.</li>
+<li>Um take por clipe. A duração sai do tamanho da fala.</li>
+<li>Recepção, corredor, fachada e sala de espera não têm referência própria: esses takes pedem "o mesmo estilo visual de @Consultorio".</li>
+</ul></div></details>
+
+<details><summary>Padrão das falas no Grok</summary><div class="in"><ul>
+<li>O Grok dubla o que está entre aspas e sincroniza a boca de quem fala. Por isso <b>todo take tem um rótulo fixo antes da fala</b>: "FALA DO DR. FOCA (@DrFoca)", "FALA DA ENFERMEIRA (@Enfermeira)", "FALA DO NARRADOR (narração em off, fora de quadro)".</li>
+<li>Logo depois da fala vem a trava de boca: "Só @Fulano fala e mexe a boca" e, quando tem mais alguém em quadro, "@Ciclano fica de boca fechada". No narrador: "Nenhum personagem em quadro fala nem mexe a boca".</li>
+<li>A voz vem colada no rótulo, sempre com o mesmo texto pra cada personagem.</li>
+<li>Quem fala fica com o rosto e a boca visíveis no quadro. Quando aparece de costas, é sempre quem está calado.</li>
+<li>Áudio sempre declarado no fim ("Áudio: ..., sem música"), porque sem isso o Grok escolhe trilha sozinho.</li>
+<li>Ordem fixa de todo prompt: cena, rótulo + voz + fala, trava de boca, câmera, áudio, fechamento.</li>
 </ul></div></details>
 
 <details><summary>Vozes fixas</summary><div class="in" id="vozes"></div></details>
@@ -75,42 +96,120 @@ html{-webkit-text-size-adjust:100%}
 </div>
 
 <script>
-const V={
-nar:"voz de narrador masculina, adulta, grave, calma e um pouco misteriosa, tom de documentário de natureza, em português do Brasil",
-doc:"voz masculina madura, grave, seca e sem pressa, em português do Brasil",
-enf:"voz feminina adulta, clara, firme e rápida, em português do Brasil",
-pac:"voz masculina jovem, aguda e aflita, em português do Brasil"};
-const T="Sem música, sem legenda e sem texto na tela. Vídeo horizontal 16:9.";
-const off=f=>`Narração em off, ${V.nar}: "${f}" Ninguém em quadro mexe a boca.`;
+const P={
+NAR:{nome:"Narrador",rot:"FALA DO NARRADOR",cor:"#c9b6ff",voz:"voz de narrador masculina, adulta, grave, calma e um pouco misteriosa, tom de documentário de natureza, em português do Brasil"},
+DOC:{nome:"Dr. Foca",at:"@DrFoca",rot:"FALA DO DR. FOCA",cor:"#ff7a59",voz:"voz masculina madura, grave, seca e sem pressa, em português do Brasil"},
+ENF:{nome:"Enfermeira",at:"@Enfermeira",rot:"FALA DA ENFERMEIRA",cor:"#5cc8e8",voz:"voz feminina adulta, clara, firme e rápida, em português do Brasil"},
+PAC:{nome:"Paciente",at:"@Paciente",rot:"FALA DO PACIENTE",cor:"#ffd166",voz:"voz de menino, aguda, anasalada de resfriado e aflita, em português do Brasil"},
+TES:{nome:"Foca Testemunha",at:"@FocaTestemunha",rot:"FALA DA FOCA TESTEMUNHA",cor:"#f78fb3",voz:"voz feminina de senhora, animada, fofoqueira e rápida, em português do Brasil"},
+OUT:{nome:"Outra Foca",at:"@OutraFoca",rot:"FALA DA OUTRA FOCA",cor:"#8ee08e",voz:"voz masculina jovem, alta, esbaforida e afobada, em português do Brasil"}
+};
+const FIM="Sem legenda e sem texto na tela. Vídeo horizontal 16:9.";
+const junta=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' e '+a[a.length-1];
+function fala(t){
+  if(t.q==="NAR") return `FALA DO NARRADOR (narração em off, fora de quadro), com ${P.NAR.voz}: "${t.f}" Nenhum personagem em quadro fala nem mexe a boca.`;
+  const p=P[t.q]; let x=`${p.rot} (${p.at}), com ${p.voz}: "${t.f}" Só ${p.at} fala e mexe a boca`;
+  if(t.m&&t.m.length) x+=`; ${junta(t.m)} ${t.m.length>1?'ficam':'fica'} de boca fechada`;
+  return x+'.';
+}
+function prompt(t){
+  const cam=t.cam===undefined?"Câmera parada.":t.cam;
+  const som=t.som||"som ambiente baixo de consultório";
+  return [t.c,fala(t),cam,`Áudio: ${som}, sem música.`,t.fim||FIM].filter(Boolean).join(' ');
+}
 
-const E="Folha de personagem no mesmo estilo e no mesmo layout da imagem do Dr. Foca anexada: animação 3D infantil e caricata, render suave com pelagem macia e aveludada, corpo bem redondo em formato de ovo, em pé sobre as nadadeiras de trás, olhos grandes pretos e brilhantes, focinho pequeno com bigodes finos, nadadeiras curtinhas, proporções fofas e amigáveis pra criança. Fundo cinza-claro liso, luz de estúdio suave, quatro vistas do mesmo personagem lado a lado com os rótulos FRONT, BACK, SIDE e THREE-QUARTER embaixo de cada uma e o nome do personagem escrito no alto em fonte fina e elegante. Personagem idêntico nas quatro vistas, sem marca d'água.";
+const EST="Folha de personagem no mesmo estilo e no mesmo layout da imagem do Dr. Foca anexada: animação 3D infantil e caricata, render suave com pelagem macia e aveludada, corpo bem redondo em formato de ovo, em pé sobre as nadadeiras de trás, olhos grandes pretos e brilhantes, focinho pequeno com bigodes finos, nadadeiras curtinhas, proporções fofas e amigáveis pra criança. Fundo cinza-claro liso, luz de estúdio suave, quatro vistas do mesmo personagem lado a lado com os rótulos FRONT, BACK, SIDE e THREE-QUARTER embaixo de cada uma e o nome do personagem com arroba escrito no alto em fonte fina e elegante. Personagem idêntico nas quatro vistas, sem marca d'água.";
+const D={
+ENF:"Uma foca de pelagem creme-prateada com pintinhas cinza-claras em formato de florzinha, um pouco menor e mais fofinha que o Dr. Foca, bochechas rosadas, cílios longos e sorriso doce. Veste um uniforme de enfermeira azul-claro curtinho com gola branca, touca branca de enfermeira com uma cruz vermelha pequena e segura uma prancheta azul-clara numa nadadeira.",
+PAC:"Um filhote de foca branquinho e felpudo, bem menor que o Dr. Foca, olhos enormes e úmidos, nariz vermelho e brilhante de resfriado, sobrancelhas preocupadas e jeito dramático e engraçado. Veste um avental hospitalar azul-claro com bolinhas brancas e uma pulseira de identificação amarela numa nadadeira.",
+TES:"Uma foca senhorinha de pelagem cinza-azulada com pintinhas brancas, um pouco menor que o Dr. Foca, óculos redondos na ponta do focinho, touquinha de crochê lilás, xale florido nos ombros e uma bolsinha pendurada na nadadeira, cara de fofoqueira esperta.",
+OUT:"Uma foca jovem de pelagem marrom-clara com pintinhas escuras, do tamanho do Dr. Foca, colete laranja de funcionário do hospital com um crachá em branco e boné vermelho, olhos arregalados e jeito afobado.",
+CON:"Consultório do Hospital das Focas em plano amplo horizontal 16:9 mostrando a sala inteira, tudo com cantos arredondados e na escala de focas pequenas e redondas: piso de azulejo branco, paredes azul-claras com uma faixa de ondinhas desenhadas, uma grande janela redonda tipo escotilha mostrando o mar azul e blocos de gelo, mesa baixa de madeira clara com uma pilha de papéis, um sino prateado de balcão e um telefone antigo azul, negatoscópio na parede, maca baixinha com toalha branca, cadeira baixa e fofinha de paciente na frente da mesa e porta com vidro jateado ao fundo. Luz clara e acolhedora entrando pela escotilha."
+};
+const TODAS=`Gere 5 imagens separadas, todas no mesmo estilo da imagem do Dr. Foca anexada: animação 3D infantil e caricata, render suave, cores suaves e alegres. As imagens 1, 2, 3 e 4 são folhas de personagem no mesmo layout da imagem do Dr. Foca: corpo bem redondo em formato de ovo, em pé sobre as nadadeiras de trás, pelagem macia e aveludada, olhos grandes pretos e brilhantes, focinho pequeno com bigodes finos, nadadeiras curtinhas, proporções fofas e amigáveis pra criança, formato horizontal 16:9, fundo cinza-claro liso, luz de estúdio suave, quatro vistas do mesmo personagem lado a lado com os rótulos FRONT, BACK, SIDE e THREE-QUARTER embaixo de cada uma e o nome com arroba escrito no alto em fonte fina e elegante, exatamente como indicado, personagem idêntico nas quatro vistas. A imagem 5 é o cenário, sem nenhum personagem, com o nome com arroba escrito no alto na mesma fonte. Nenhuma imagem com marca d'água.
+
+Imagem 1, nome no alto: @Enfermeira. ${D.ENF}
+
+Imagem 2, nome no alto: @Paciente. ${D.PAC}
+
+Imagem 3, nome no alto: @FocaTestemunha. ${D.TES}
+
+Imagem 4, nome no alto: @OutraFoca. ${D.OUT}
+
+Imagem 5, nome no alto: @Consultorio. ${D.CON}`;
 const refs=[
-{nome:"@Enfermeira",desc:"A enfermeira que traz os pacientes (takes 07 a 15).",prompt:`${E} Personagem: Enfermeira, uma foca de pelagem creme-prateada com pintinhas cinza-claras em formato de florzinha, um pouco menor e mais fofinha que o Dr. Foca, bochechas rosadas, cílios longos e sorriso doce. Veste um uniforme de enfermeira azul-claro curtinho com gola branca, touca branca de enfermeira com uma cruz vermelha pequena e segura uma prancheta azul-clara numa nadadeira. Nome escrito no alto: Enfermeira.`},
-{nome:"@PacienteEspirro",desc:"O paciente que está espirrando desde ontem. Aparece na sala de espera (take 02).",prompt:`${E} Personagem: Paciente do Espirro, uma foca de pelagem cinza-escura com pintinhas pretas, menor e mais redondinha que o Dr. Foca, nariz vermelho e brilhante de resfriado, olhos um pouco caídos e lacrimejando, cara de coitadinho engraçado. Usa um cachecol de lã listrado de vermelho e branco enrolado no pescoço e segura um lenço de papel numa nadadeira. Nome escrito no alto: Paciente do Espirro.`},
-{nome:"@Paciente",desc:"O próximo paciente, que entra no consultório e grita \"Doutor!\" (takes 18 e 19).",prompt:`${E} Personagem: Paciente, um filhote de foca branquinho e felpudo, bem menor que o Dr. Foca, olhos enormes e úmidos, sobrancelhas preocupadas e jeito dramático e engraçado. Veste um avental hospitalar azul-claro com bolinhas brancas e uma pulseira de identificação amarela numa nadadeira. Nome escrito no alto: Paciente.`},
-{nome:"@Consultorio",desc:"O cenário do consultório, pra sala ficar igual em todos os takes.",prompt:`Cenário no mesmo estilo da imagem do Dr. Foca anexada: animação 3D infantil, cores suaves e alegres, tudo com cantos arredondados e na escala de focas pequenas e redondas, sem nenhum personagem. Consultório do Hospital das Focas: piso de azulejo branco, paredes azul-claras com uma faixa de ondinhas desenhadas, uma grande janela redonda tipo escotilha mostrando o mar azul e blocos de gelo, mesa baixa de madeira clara com uma pilha de papéis, um sino prateado de balcão e um telefone antigo azul, negatoscópio na parede, maca baixinha com toalha branca, cadeira baixa e fofinha de paciente na frente da mesa e porta com vidro jateado ao fundo. Luz clara e acolhedora entrando pela escotilha. Plano amplo horizontal 16:9 mostrando a sala inteira, sem texto, sem marca d'água.`}
+{nome:"Todas as referências",desc:"Prompt único: anexe a imagem do Dr. Foca uma vez e ele gera as 4 folhas de personagem e o consultório, cada uma com o @ no alto.",prompt:TODAS},
+{nome:"@Enfermeira",desc:"Traz os pacientes e acha os travesseiros de pena.",prompt:`${EST} Personagem: ${D.ENF} Nome escrito no alto: @Enfermeira.`},
+{nome:"@Paciente",desc:"O filhote que não para de espirrar. Aparece na sala de espera (take 02) e é atendido do take 18 ao 49.",prompt:`${EST} Personagem: ${D.PAC} Nome escrito no alto: @Paciente.`},
+{nome:"@FocaTestemunha",desc:"A fofoqueira que aparece na janela (takes 37 a 41).",prompt:`${EST} Personagem: ${D.TES} Nome escrito no alto: @FocaTestemunha.`},
+{nome:"@OutraFoca",desc:"O funcionário que avisa do peixe sumido (takes 50 a 56).",prompt:`${EST} Personagem: ${D.OUT} Nome escrito no alto: @OutraFoca.`},
+{nome:"@Consultorio",desc:"O cenário principal, pra sala ficar igual em todos os takes.",prompt:`Cenário no mesmo estilo da imagem do Dr. Foca anexada: animação 3D infantil, cores suaves e alegres, sem nenhum personagem. ${D.CON} Nome escrito no alto: @Consultorio. Sem marca d'água.`}
 ];
 
+const C="@Consultorio";
 const takes=[
-{n:"01",q:"NARRADOR",f:"Em algum lugar do oceano existe um hospital diferente de todos os outros.",r:["@Consultorio"],p:`Plano aéreo amplo sobre o oceano aberto ao entardecer, no mesmo estilo visual de @Consultorio, mar azul-escuro com ondas calmas e blocos de gelo boiando. A câmera avança devagar até revelar ao longe uma pequena ilha de pedra com um prédio branco de hospital e uma cruz vermelha no telhado. ${off("Em algum lugar do oceano existe um hospital diferente de todos os outros.")} Som de mar e vento. ${T}`},
-{n:"02",q:"NARRADOR",f:"Um hospital onde os pacientes são focas…",r:["@Consultorio","@PacienteEspirro"],p:`Sala de espera do hospital no mesmo estilo visual de @Consultorio: piso de azulejo branco úmido, bancos baixos e várias focas comuns esperando, uma com curativo na nadadeira, outra com bolsa de gelo na cabeça. No meio delas, @PacienteEspirro dá um espirro forte que balança o corpo inteiro. A câmera desliza devagar ao longo dos bancos. ${off("Um hospital onde os pacientes são focas…")} Som de sala de espera e do espirro. ${T}`},
-{n:"03",q:"NARRADOR",f:"E onde o pagamento é feito em peixe.",r:["@Consultorio"],p:`Plano fechado no balcão de recepção do hospital, no mesmo estilo visual de @Consultorio. A nadadeira de uma foca empurra um peixe prateado e brilhante por cima do balcão e uma caixa registradora antiga se abre cheia de peixes no lugar das notas. Câmera parada. ${off("E onde o pagamento é feito em peixe.")} Som da caixa registradora abrindo. ${T}`},
-{n:"04",q:"NARRADOR",f:"Este é o Hospital das Focas.",r:["@Consultorio"],p:`Fachada do hospital na ilha de pedra, no mesmo estilo visual de @Consultorio, vista de baixo pra cima: prédio branco com janelas redondas de escotilha, ondas batendo nas pedras e uma placa grande acima da porta escrita exatamente HOSPITAL DAS FOCAS. Uma foca entra pela porta de vidro. A câmera sobe devagar até a placa ficar no centro do quadro. ${off("Este é o Hospital das Focas.")} Som de ondas e gaivotas. Sem música, sem legenda e nenhum texto na tela além da placa. Vídeo horizontal 16:9.`},
-{n:"05",q:"NARRADOR",f:"E este é o Dr. Foca.",r:["@DrFoca","@Consultorio"],p:`@DrFoca de pé no meio do @Consultorio, plano médio frontal, olhando direto pra câmera e erguendo o queixo com cara de autoridade. Câmera parada. ${off("E este é o Dr. Foca.")} Som ambiente baixo de consultório. ${T}`},
-{n:"06",q:"NARRADOR",f:"Um médico que consegue descobrir coisas que ninguém mais consegue.",r:["@DrFoca","@Consultorio"],p:`Plano fechado lateral de @DrFoca no @Consultorio examinando uma radiografia presa no negatoscópio aceso, segurando uma lupa com a nadadeira e semicerrando um olho, concentrado. A câmera se aproxima devagar do rosto dele. ${off("Um médico que consegue descobrir coisas que ninguém mais consegue.")} Som ambiente baixo de consultório. ${T}`},
-{n:"07",q:"ENFERMEIRA",f:"Doutor, temos um paciente.",r:["@Enfermeira","@Consultorio"],p:`A porta de vidro jateado do @Consultorio se abre e @Enfermeira entra apressada com a prancheta na nadadeira, para perto da porta e fala com ${V.enf}: "Doutor, temos um paciente." Plano médio de dentro da sala, câmera parada. Só @Enfermeira fala. Som da porta e ambiente baixo de consultório. ${T}`},
-{n:"08",q:"DR. FOCA",f:"Qual é o problema?",r:["@DrFoca","@Consultorio"],p:`@DrFoca sentado atrás da mesa do @Consultorio, plano médio frontal, uma pilha alta de papéis na mesa com o rabo de um peixe aparecendo por trás dela. Ele não tira os olhos dos papéis e pergunta com ${V.doc}: "Qual é o problema?" Só @DrFoca fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"09",q:"ENFERMEIRA",f:"Ele está espirrando.",r:["@Enfermeira","@Consultorio"],p:`Close frontal de @Enfermeira no @Consultorio, fundo desfocado. Ela lê a prancheta, levanta os olhos na direção da mesa e fala com ${V.enf}: "Ele está espirrando." Só @Enfermeira fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"10",q:"DR. FOCA",f:"Há quanto tempo?",r:["@DrFoca","@Consultorio"],p:`Close de @DrFoca atrás da mesa do @Consultorio, câmera levemente de baixo pra cima, uma migalha de peixe presa nos bigodes. Ele franze a testa e pergunta com ${V.doc}: "Há quanto tempo?" Só @DrFoca fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"11",q:"ENFERMEIRA",f:"Desde ontem.",r:["@Enfermeira","@DrFoca","@Consultorio"],p:`Plano por cima do ombro de @DrFoca, que fica desfocado em primeiro plano à esquerda, mostrando @Enfermeira de pé do outro lado da mesa do @Consultorio à direita. Ela confere a prancheta e responde com ${V.enf}: "Desde ontem." Só @Enfermeira fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"12",q:"DR. FOCA",f:"Então mande ele esperar.",r:["@DrFoca","@Consultorio"],p:`Plano médio lateral de @DrFoca sentado na mesa do @Consultorio. Sem nem olhar, ele abana a nadadeira no ar com pouco caso e diz com ${V.doc}: "Então mande ele esperar." Só @DrFoca fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"13",q:"ENFERMEIRA",f:"Por quê?",r:["@Enfermeira","@Consultorio"],p:`Plano fechado em três-quartos de @Enfermeira no @Consultorio, a prancheta baixando devagar. Ela inclina a cabeça de lado, desconfiada, e pergunta com ${V.enf}: "Por quê?" Só @Enfermeira fala. A câmera se aproxima devagar. Som ambiente baixo de consultório. ${T}`},
-{n:"14",q:"DR. FOCA",f:"Porque eu estava almoçando.",r:["@DrFoca","@Consultorio"],p:`Plano médio frontal de @DrFoca na mesa do @Consultorio. Ele afasta a pilha de papéis e revela um peixe meio comido num prato, segura o peixe com a nadadeira e diz sem vergonha nenhuma, com ${V.doc}: "Porque eu estava almoçando." Só @DrFoca fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"15",q:"ENFERMEIRA",f:"O senhor está comendo durante o expediente?",r:["@Enfermeira","@Consultorio"],p:`Plano americano de @Enfermeira de pé no @Consultorio com a porta de vidro jateado atrás dela, nadadeira na cintura e olhos semicerrados encarando o doutor. Ela pergunta com ${V.enf}: "O senhor está comendo durante o expediente?" Só @Enfermeira fala. Câmera parada. Som ambiente baixo de consultório. ${T}`},
-{n:"16",q:"DR. FOCA",f:"Não.",r:["@DrFoca","@Consultorio"],p:`Close extremo do rosto de @DrFoca no @Consultorio com o rabo de um peixe aparecendo pra fora da boca. Ele engole o peixe inteiro de uma vez, olha sério pra frente e diz com ${V.doc}: "Não." Só @DrFoca fala. Câmera parada. Som do gole e ambiente baixo de consultório. ${T}`},
-{n:"17",q:"DR. FOCA",f:"Próximo paciente.",r:["@DrFoca","@Consultorio"],p:`Plano fechado na mesa do @Consultorio: a nadadeira de @DrFoca bate no sino prateado de balcão, e a câmera sobe até o rosto dele, já recomposto, que diz com ${V.doc}: "Próximo paciente." Só @DrFoca fala. Som do sino e ambiente baixo de consultório. ${T}`},
-{n:"18",q:"DR. FOCA",f:"Sente-se.",r:["@DrFoca","@Paciente","@Consultorio"],p:`Plano aberto do @Consultorio visto do canto da sala. @DrFoca está atrás da mesa à direita. A porta ao fundo se abre e @Paciente entra devagar, aflito. @DrFoca aponta com a nadadeira para a cadeira baixa à esquerda da mesa e diz com ${V.doc}: "Sente-se." @Paciente se senta na cadeira. Só @DrFoca fala. Câmera parada. Som da porta e ambiente baixo de consultório. ${T}`},
-{n:"19",q:"PACIENTE",f:"Doutor!",r:["@Paciente","@Consultorio"],p:`Close frontal de @Paciente sentado na cadeira do @Consultorio. Ele se inclina pra frente de olhos arregalados, desesperado, e grita com ${V.pac}: "Doutor!" Só @Paciente fala. A câmera faz um zoom rápido até o rosto dele. Som ambiente baixo de consultório. ${T}`}
+{part:"Parte 1 · O hospital"},
+{n:"01",q:"NAR",f:"Em algum lugar do oceano existe um hospital diferente de todos os outros.",r:[C],c:"Plano aéreo amplo sobre o oceano aberto ao entardecer, no mesmo estilo visual de @Consultorio: mar azul com ondas calmas e blocos de gelo boiando, e ao longe uma pequena ilha de pedra com um prédio branco de hospital e uma cruz vermelha no telhado.",cam:"A câmera avança devagar em direção à ilha.",som:"mar e vento"},
+{n:"02",q:"NAR",f:"Um hospital onde os pacientes são focas…",r:[C,"@Paciente"],c:"Sala de espera do hospital no mesmo estilo visual de @Consultorio: bancos baixos com várias focas comuns esperando, uma com curativo na nadadeira, outra com bolsa de gelo na cabeça. No meio delas, @Paciente dá um espirro forte que balança o corpo inteiro.",cam:"A câmera desliza devagar ao longo dos bancos.",som:"sala de espera e o espirro"},
+{n:"03",q:"NAR",f:"E onde o pagamento é feito em peixe.",r:[C],c:"Plano fechado no balcão de recepção do hospital, no mesmo estilo visual de @Consultorio. A nadadeira de uma foca empurra um peixe prateado e brilhante por cima do balcão e uma caixa registradora antiga se abre cheia de peixes no lugar das notas.",som:"caixa registradora abrindo"},
+{n:"04",q:"NAR",f:"Este é o Hospital das Focas.",r:[C],c:"Fachada do hospital na ilha de pedra, no mesmo estilo visual de @Consultorio, vista de baixo pra cima: prédio branco com janelas redondas de escotilha, ondas batendo nas pedras e uma placa grande acima da porta escrita exatamente HOSPITAL DAS FOCAS. Uma foca entra pela porta de vidro.",cam:"A câmera sobe devagar até a placa ficar no centro do quadro.",som:"ondas e gaivotas",fim:"Sem legenda e nenhum texto na tela além da placa. Vídeo horizontal 16:9."},
+{n:"05",q:"NAR",f:"E este é o Dr. Foca.",r:["@DrFoca",C],c:"@DrFoca de pé no meio do @Consultorio, plano médio frontal, olha direto pra câmera e ergue o queixo com cara de autoridade."},
+{n:"06",q:"NAR",f:"Um médico que consegue descobrir coisas que ninguém mais consegue.",r:["@DrFoca",C],c:"Plano fechado lateral de @DrFoca no @Consultorio examinando uma radiografia presa no negatoscópio aceso, segurando uma lupa com a nadadeira e semicerrando um olho, concentrado.",cam:"A câmera se aproxima devagar do rosto dele."},
+{part:"Parte 2 · O almoço"},
+{n:"07",q:"ENF",f:"Doutor, temos um paciente.",r:["@Enfermeira",C],c:"A porta de vidro jateado do @Consultorio se abre e @Enfermeira entra apressada com a prancheta na nadadeira e para perto da porta, de frente pra câmera, em plano médio.",som:"porta abrindo e ambiente baixo de consultório"},
+{n:"08",q:"DOC",f:"Qual é o problema?",r:["@DrFoca",C],c:"@DrFoca sentado atrás da mesa do @Consultorio, plano médio frontal, uma pilha alta de papéis na mesa com o rabo de um peixe aparecendo por trás dela. Ele não tira os olhos dos papéis."},
+{n:"09",q:"ENF",f:"Ele está espirrando.",r:["@Enfermeira",C],c:"Close frontal de @Enfermeira no @Consultorio, fundo desfocado. Ela lê a prancheta e levanta os olhos na direção da mesa."},
+{n:"10",q:"DOC",f:"Há quanto tempo?",r:["@DrFoca",C],c:"Close de @DrFoca atrás da mesa do @Consultorio, câmera levemente de baixo pra cima, uma migalha de peixe presa nos bigodes. Ele franze a testa."},
+{n:"11",q:"ENF",f:"Desde ontem.",r:["@Enfermeira","@DrFoca",C],m:["@DrFoca"],c:"Plano por cima do ombro de @DrFoca, desfocado em primeiro plano à esquerda e de costas, mostrando @Enfermeira de pé do outro lado da mesa do @Consultorio, à direita e de frente pra câmera. Ela confere a prancheta."},
+{n:"12",q:"DOC",f:"Então mande ele esperar.",r:["@DrFoca",C],c:"Plano médio lateral de @DrFoca sentado na mesa do @Consultorio. Sem nem olhar, ele abana a nadadeira no ar com pouco caso."},
+{n:"13",q:"ENF",f:"Por quê?",r:["@Enfermeira",C],c:"Plano fechado em três-quartos de @Enfermeira no @Consultorio, a prancheta baixando devagar. Ela inclina a cabeça de lado, desconfiada.",cam:"A câmera se aproxima devagar."},
+{n:"14",q:"DOC",f:"Porque eu estava almoçando.",r:["@DrFoca",C],c:"Plano médio frontal de @DrFoca na mesa do @Consultorio. Ele afasta a pilha de papéis, revela um peixe meio comido num prato e segura o peixe com a nadadeira, sem vergonha nenhuma."},
+{n:"15",q:"ENF",f:"O senhor está comendo durante o expediente?",r:["@Enfermeira",C],c:"Plano americano de @Enfermeira de pé no @Consultorio com a porta de vidro jateado atrás dela, nadadeira na cintura e olhos semicerrados encarando o doutor."},
+{n:"16",q:"DOC",f:"Não.",r:["@DrFoca",C],c:"Close extremo do rosto de @DrFoca no @Consultorio com o rabo de um peixe aparecendo pra fora da boca. Ele engole o peixe inteiro de uma vez e olha sério pra frente antes de falar.",som:"gole e ambiente baixo de consultório"},
+{n:"17",q:"DOC",f:"Próximo paciente.",r:["@DrFoca",C],c:"Plano fechado na mesa do @Consultorio: a nadadeira de @DrFoca bate no sino prateado de balcão e a câmera sobe até o rosto dele, já recomposto.",cam:"",som:"sino e ambiente baixo de consultório"},
+{part:"Parte 3 · A consulta"},
+{n:"18",q:"DOC",f:"Sente-se.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano aberto do @Consultorio visto do canto da sala. @DrFoca está atrás da mesa, à direita. A porta ao fundo se abre e @Paciente entra devagar, aflito. @DrFoca aponta com a nadadeira para a cadeira baixa à esquerda da mesa e @Paciente se senta nela.",som:"porta abrindo e ambiente baixo de consultório"},
+{n:"19",q:"PAC",f:"Doutor!",r:["@Paciente",C],c:"Close frontal de @Paciente sentado na cadeira do @Consultorio. Ele se inclina pra frente de olhos arregalados, desesperado.",cam:"A câmera faz um zoom rápido até o rosto dele."},
+{n:"20",q:"DOC",f:"O que aconteceu?",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano por cima do ombro de @Paciente, desfocado em primeiro plano à esquerda e de costas, mostrando @DrFoca atrás da mesa do @Consultorio, à direita e de frente pra câmera. Ele cruza as nadadeiras sobre a mesa e se inclina pra frente."},
+{n:"21",q:"PAC",f:"Não paro de espirrar!",r:["@Paciente",C],c:"Plano médio frontal de @Paciente sentado na cadeira do @Consultorio, nariz vermelho escorrendo. Logo depois de falar, ele dá um espirro enorme que faz os papéis da mesa voarem.",som:"espirro e papéis voando"},
+{n:"22",q:"DOC",f:"Comeu peixe?",r:["@DrFoca",C],c:"Plano médio lateral de @DrFoca no @Consultorio, de perfil, anotando na prancheta com uma caneta, sem tirar os olhos do papel."},
+{n:"23",q:"PAC",f:"Uns vinte e cinco.",r:["@Paciente",C],c:"Plano em três-quartos de @Paciente no @Consultorio contando nas nadadeiras, todo orgulhoso, com um sorrisinho satisfeito."},
+{n:"24",q:"DOC",f:"Isso explica a fome.",r:["@DrFoca",C],c:"Close frontal de @DrFoca no @Consultorio. Ele ergue uma sobrancelha, olha pra própria barriga e acena com a cabeça bem devagar, como quem entendeu tudo."},
+{n:"25",q:"DOC",f:"Respire fundo.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano médio lateral perto da maca do @Consultorio: @Paciente sentado na maca, à direita, e @DrFoca de pé, à esquerda e de frente pra câmera, encostando o estetoscópio no peito dele."},
+{n:"26",q:"PAC",f:"Assim?",r:["@Paciente",C],c:"Close frontal de @Paciente sentado na maca do @Consultorio. Ele puxa o ar com força, as bochechas ficam redondas e cheias, e solta a pergunta com cara de esforço."},
+{n:"27",q:"DOC",f:"Mais.",r:["@DrFoca",C],c:"Close de @DrFoca no @Consultorio com o estetoscópio nos ouvidos, olhos fechados de concentração, levantando uma nadadeira pra pedir mais."},
+{n:"28",q:"DOC",f:"Vai engolir o estetoscópio.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano aberto lateral da maca do @Consultorio: @Paciente, à direita, puxa tanto ar que o corpo incha feito uma bola e o estetoscópio começa a ser sugado em direção ao focinho dele; @DrFoca, à esquerda e de frente pra câmera, segura o estetoscópio com as duas nadadeiras."},
+{n:"29",q:"DOC",f:"Seus pulmões estão normais.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano por cima do ombro de @Paciente na maca do @Consultorio, desfocado em primeiro plano à direita e de costas, mostrando @DrFoca à esquerda e de frente pra câmera, tirando o estetoscópio dos ouvidos enquanto @Paciente murcha de volta ao tamanho normal."},
+{n:"30",q:"PAC",f:"Então estou bem?",r:["@Paciente",C],c:"Plano de baixo pra cima de @Paciente sentado na maca do @Consultorio, sorrindo esperançoso, com os olhos brilhando."},
+{n:"31",q:"DOC",f:"Não disse isso.",r:["@DrFoca",C],c:"Close extremo dos olhos e do focinho de @DrFoca no @Consultorio. Ele semicerra os olhos, desconfiado, e tira uma pinça do bolso do jaleco."},
+{part:"Parte 4 · A investigação"},
+{n:"32",q:"DOC",f:"Não se mexa. Tem uma pena aí.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano fechado lateral na maca do @Consultorio: @DrFoca, à esquerda e de frente pra câmera, se aproxima com a pinça e puxa uma peninha branca do pelo do pescoço de @Paciente, à direita, que fica paradinho."},
+{n:"33",q:"PAC",f:"Uma pena?!",r:["@Paciente",C],c:"Close frontal de @Paciente no @Consultorio, olhos arregalados de espanto, com a peninha branca presa na pinça balançando bem na frente do focinho dele."},
+{n:"34",q:"DOC",f:"E tem mais.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano aberto da maca do @Consultorio: @DrFoca, à esquerda e de frente pra câmera, levanta a nadadeira de @Paciente, à direita, e várias peninhas brancas caem flutuando até o chão."},
+{n:"35",q:"ENF",f:"E se for alergia?",r:["@Enfermeira",C],c:"Plano americano de @Enfermeira de pé perto da porta do @Consultorio, segurando a prancheta junto ao peito, com cara de quem teve uma ideia."},
+{n:"36",q:"DOC",f:"Não estrague minha investigação.",r:["@DrFoca","@Enfermeira",C],m:["@Enfermeira"],c:"Plano por cima do ombro de @Enfermeira no @Consultorio, desfocada em primeiro plano à direita e de costas, mostrando @DrFoca à esquerda e de frente pra câmera, levantando uma nadadeira pra ela parar e segurando a pinça com a peninha na outra."},
+{n:"37",q:"TES",f:"Eu sei quem colocou as penas!",r:["@FocaTestemunha",C],c:"Plano fechado na janela redonda de escotilha do @Consultorio: @FocaTestemunha surge de repente do lado de fora, com a janela aberta e o rosto quase entrando na sala, olhos arregalados de fofoca."},
+{n:"38",q:"DOC",f:"Quem?",r:["@DrFoca",C],c:"Close de @DrFoca no @Consultorio virando a cabeça rápido na direção da janela, com a peninha ainda presa na pinça."},
+{n:"39",q:"TES",f:"A Foca da Limpeza.",r:["@FocaTestemunha",C],c:"Plano médio de @FocaTestemunha na janela do @Consultorio. Ela olha pros dois lados, desconfiada, e se debruça pra dentro da sala falando baixinho, como quem conta um segredo."},
+{n:"40",q:"DOC",f:"Por quê?",r:["@DrFoca",C],c:"Close frontal de @DrFoca no @Consultorio segurando uma lupa na frente de um olho, que fica enorme através da lente."},
+{n:"41",q:"TES",f:"Não sei.",r:["@FocaTestemunha",C],c:"Plano médio de @FocaTestemunha na janela do @Consultorio encolhendo os ombros e abrindo as nadadeiras, com cara de quem não faz a menor ideia."},
+{n:"42",q:"DOC",f:"Excelente testemunho.",r:["@DrFoca","@Enfermeira",C],m:["@Enfermeira"],c:"Plano médio do @Consultorio: @DrFoca, em primeiro plano à esquerda e de frente pra câmera, anota na prancheta com cara séria e seca; @Enfermeira, ao fundo à direita, revira os olhos."},
+{n:"43",q:"DOC",f:"Onde você dormiu?",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano americano lateral do @Consultorio: @DrFoca, à esquerda, se vira de frente pra @Paciente, que continua sentado na maca, à direita. O rosto de @DrFoca fica visível de três-quartos."},
+{n:"44",q:"PAC",f:"No depósito.",r:["@Paciente",C],c:"Plano em três-quartos de @Paciente na maca do @Consultorio, envergonhado, coçando a cabeça com a nadadeira; uma peninha branca se solta do pelo e cai."},
+{n:"45",q:"DOC",f:"O que tem lá?",r:["@DrFoca",C],c:"Close de @DrFoca no @Consultorio, câmera de baixo pra cima, com a sobrancelha levantada e o queixo apoiado na nadadeira, pensativo."},
+{n:"46",q:"ENF",f:"Travesseiros de pena.",r:["@Enfermeira",C],c:"Plano médio de @Enfermeira no @Consultorio segurando um travesseiro branco furado, de onde escapam várias peninhas que flutuam no ar em volta dela."},
+{n:"47",q:"DOC",f:"Problema resolvido.",r:["@DrFoca",C],c:"Plano médio de @DrFoca na mesa do @Consultorio carimbando um papel na prancheta com força, todo satisfeito.",som:"carimbo batendo e ambiente baixo de consultório"},
+{n:"48",q:"PAC",f:"Então não é sério?",r:["@Paciente",C],c:"Plano médio frontal de @Paciente sentado na maca do @Consultorio, os ombros caindo de alívio."},
+{n:"49",q:"DOC",f:"Não. Mas durma na sua cama.",r:["@DrFoca","@Paciente",C],m:["@Paciente"],c:"Plano americano do @Consultorio: @Paciente na maca, à esquerda, e @DrFoca de pé, à direita e de frente pra câmera, apontando com a nadadeira para a porta."},
+{part:"Parte 5 · O novo caso"},
+{n:"50",q:"OUT",f:"DOUTOR! Uma foca perdeu o peixe!",r:["@OutraFoca",C],c:"Plano aberto do @Consultorio visto de dentro da sala: a porta de vidro jateado se abre com tudo e @OutraFoca entra escorregando de barriga pelo piso até parar no meio da sala, de frente pra câmera, e grita ofegante.",som:"porta batendo, escorregão e ambiente baixo de consultório"},
+{n:"51",q:"DOC",f:"Onde?",r:["@DrFoca",C],c:"Close de @DrFoca no @Consultorio se levantando de uma vez da cadeira, com os olhos arregalados."},
+{n:"52",q:"OUT",f:"Na recepção. E o peixe também sumiu.",r:["@OutraFoca",C],c:"Close frontal de @OutraFoca no @Consultorio, ofegante, apontando com a nadadeira para fora da porta."},
+{n:"53",q:"DOC",f:"Agora temos um caso.",r:["@DrFoca",C],c:"Plano médio de @DrFoca diante da janela redonda de escotilha do @Consultorio, em contraluz com o mar ao fundo. Ele se vira devagar pra câmera com um olhar decidido.",cam:"A câmera se aproxima devagar."},
+{n:"54",q:"NAR",f:"O que aconteceu com o peixe? Descubra no próximo episódio de Dr. Foca!",r:[C],c:"Balcão de recepção do hospital visto de cima, no mesmo estilo visual de @Consultorio: a caixa registradora antiga está aberta e vazia, e no balcão sobrou só uma marquinha molhada em formato de peixe.",cam:"A câmera se afasta devagar.",som:"ambiente baixo de recepção"},
+{n:"55",q:"DOC",f:"Eu vou embora.",r:["@DrFoca",C],c:"Corredor do hospital no mesmo estilo visual de @Consultorio, plano médio: @DrFoca caminha gingando em direção à porta de saída, para e vira a cabeça por cima do ombro, com o rosto de frente pra câmera."},
+{n:"56",q:"OUT",f:"Mas o hospital é seu.",r:["@OutraFoca","@DrFoca",C],m:["@DrFoca"],c:"Plano médio no corredor do hospital, no mesmo estilo visual de @Consultorio: @OutraFoca, em primeiro plano à direita e de frente pra câmera, coça a cabeça confuso; @DrFoca está ao fundo, à esquerda, parado perto da porta de saída."},
+{n:"57",q:"DOC",f:"Exatamente.",r:["@DrFoca",C],c:"Plano aberto da porta de saída do hospital, no mesmo estilo visual de @Consultorio, com o mar e o céu do entardecer lá fora. @DrFoca, na porta e de frente pra câmera, dá um sorrisinho satisfeito e, depois de falar, sai gingando enquanto a porta se fecha atrás dele.",som:"ondas lá fora e porta fechando"}
 ];
 
 function box(label,text){
@@ -127,12 +226,15 @@ function box(label,text){
 }
 function fb(t,done){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();done()}
 
-const vz=document.getElementById('vozes');
-[["Narrador",V.nar],["Dr. Foca",V.doc],["Enfermeira",V.enf],["Paciente",V.pac]].forEach(([k,v])=>{const p=document.createElement('p');p.innerHTML=`<b style="color:#e8f0f8">${k}:</b> ${v}`;vz.appendChild(p)});
-const pe=document.createElement('p');pe.textContent='Paciente do Espirro: não fala, só espirra.';vz.appendChild(pe);
+const cast=document.getElementById('cast');
+Object.keys(P).forEach(k=>{const p=P[k];const d=document.createElement('div');d.style.setProperty('--c',p.cor);d.innerHTML=`<b>${p.nome}</b><span>${p.at||'em off'}</span>`;cast.appendChild(d)});
+const cen=document.createElement('div');cen.style.setProperty('--c','#93a8c0');cen.innerHTML='<b>Consultório</b><span>@Consultorio</span>';cast.appendChild(cen);
 
-const rot=takes.map(t=>`${t.n} · ${t.q}: ${t.f}`).join('\n');
-document.getElementById('roteiro').appendChild(box('Roteiro organizado',rot));
+const vz=document.getElementById('vozes');
+Object.keys(P).forEach(k=>{const p=document.createElement('p');p.innerHTML=`<b>${P[k].nome}:</b> ${P[k].voz}`;vz.appendChild(p)});
+
+const linhas=takes.filter(t=>t.n).map(t=>`${t.n} · ${P[t.q].nome.toUpperCase()}: ${t.f}`).join('\n');
+document.getElementById('roteiro').appendChild(box('Roteiro organizado · 57 falas',linhas));
 
 const R=document.getElementById('refs');
 refs.forEach(r=>{const c=document.createElement('div');c.className='card';
@@ -140,9 +242,11 @@ refs.forEach(r=>{const c=document.createElement('div');c.className='card';
   c.appendChild(box('Prompt de referência · ChatGPT',r.prompt));R.appendChild(c)});
 
 const K=document.getElementById('takes');
-takes.forEach(t=>{const c=document.createElement('div');c.className='card';
-  c.innerHTML=`<div class="top"><span class="num">${t.n}</span><span class="who">${t.q}</span></div><div class="fala">${t.f}</div><div class="refs">Refs: <b>${t.r.join('  ')}</b></div>`;
-  c.appendChild(box('Prompt de vídeo · Grok',t.p));K.appendChild(c)});
+takes.forEach(t=>{
+  if(t.part){const h=document.createElement('div');h.className='part';h.textContent=t.part;K.appendChild(h);return}
+  const p=P[t.q];const c=document.createElement('div');c.className='card';c.style.setProperty('--c',p.cor);
+  c.innerHTML=`<div class="top"><span class="num">${t.n}</span><span class="who">${p.rot}</span></div><div class="fala">${t.f}</div><div class="refs">Refs: <b>${t.r.join('  ')}</b></div>`;
+  c.appendChild(box('Prompt de vídeo · Grok',prompt(t)));K.appendChild(c)});
 </script>
 </body>
 </html>
