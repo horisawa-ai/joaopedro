@@ -48,7 +48,7 @@
   .rtitle{flex:1;min-width:0;font-weight:600;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .copy{background:var(--acc);color:var(--acc-txt);border:0;height:44px;padding:0 18px;border-radius:12px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;flex:0 0 auto}
   .copy.done{background:var(--ok);color:#00230f}
-  .frame{flex:1;width:100%;border:0;background:#fff}
+  .frame{flex:1;width:100%;border:0;background:var(--bg)}
   .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:var(--ok);color:#00230f;font-weight:700;padding:12px 18px;border-radius:999px;opacity:0;transition:.2s;pointer-events:none;z-index:20}
   .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
@@ -162,6 +162,8 @@ function fecharLeitor(){
 $('frame').addEventListener('load', () => {
   let d; try{ d = $('frame').contentDocument; }catch(e){ return; }
   if(!d || !d.body) return;
+  // se o roteiro ja tem os proprios botoes de copiar, nao mexe
+  if(d.querySelector('button')) return;
   d.querySelectorAll('pre').forEach(pre => {
     if(pre.dataset.jpCopy) return;
     pre.dataset.jpCopy = '1';
@@ -191,7 +193,9 @@ $('copy').onclick = () => {
   let d; try{ d = $('frame').contentDocument; }catch(e){}
   if(!d || !d.body) return;
   const clone = d.body.cloneNode(true);
-  clone.querySelectorAll('[data-jp-copy] > button').forEach(b => b.remove());
+  clone.querySelectorAll('button, script, style').forEach(b => b.remove());
+  clone.querySelectorAll('pre').forEach(p => { p.style.maxHeight = 'none'; });
+  clone.querySelectorAll('details').forEach(x => x.setAttribute('open',''));
   // innerText respeita quebras de linha do jeito que aparece na tela
   const tmp = d.createElement('div');
   tmp.style.cssText = 'position:absolute;left:-99999px;top:0;white-space:normal';
